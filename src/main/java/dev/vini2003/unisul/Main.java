@@ -9,7 +9,10 @@ public class Main {
         try {
             PrintWriter out;
 
-            try (var servidor = new Socket("localhost", 4444)) {
+            var host = JOptionPane.showInputDialog("Digite o endereço do servidor: ");
+            var port = Integer.parseInt(JOptionPane.showInputDialog("Digite a porta: "));
+
+            try (var servidor = new Socket(host, port)) {
                 out = new PrintWriter(servidor.getOutputStream(), true);
             }//endereco e porta
 
